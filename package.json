@@ -1,0 +1,16 @@
+{
+  "name": "simsys-os",
+  "productName": "SimSys OS",
+  "version": "1.0.0",
+  "description": "Simulador de un Sistema Operativo de escritorio: planificación de procesos con quantum, interbloqueo, inanición, administración de memoria (compactación / fragmentación),_CPU, disco y dispositivos de E/S.",
+  "author": "Juan",
+  "license": "MIT",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test-kernel": "node test-kernel.js"
+  },
+  "devDependencies": {
+    "electron": "^44.9.0"
+  }
+}

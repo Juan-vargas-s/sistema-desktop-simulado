@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' file: data: https:; script-src 'self' file: 'unsafe-inline'; style-src 'self' file: 'unsafe-inline'; img-src 'self' file: data: https:; frame-src *;" />
+  <title>SimSys OS — Simulador de Sistema Operativo</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="frutiger-aero.css" />
+</head>
+<body>
+  <!-- ===================== BOOT ===================== -->
+  <div id="boot-screen">
+    <div class="boot-logo">🧠 <span>SimSys <b>OS</b></span></div>
+    <div class="boot-sub">Simulador de Sistema Operativo · Gestión de procesos, recursos y memoria</div>
+    <pre id="boot-log"></pre>
+    <div class="boot-bar"><div id="boot-bar-fill"></div></div>
+  </div>
+
+  <!-- ===================== ESCRITORIO ===================== -->
+  <div id="desktop" class="hidden">
+    <div id="wallpaper">
+      <div class="wall-caption">
+        <h1>SimSys OS</h1>
+        <p>Planificación Round-Robin con quantum · Detección de interbloqueo · Inanición · Compactación de memoria</p>
+      </div>
+    </div>
+
+    <div id="desktop-icons"></div>
+    <div id="windows-layer"></div>
+
+    <!-- Barra inferior -->
+    <div id="taskbar">
+      <button id="start-btn" title="Menú de aplicaciones">💠 <span>Inicio</span></button>
+      <div id="task-items"></div>
+      <div id="tray">
+        <div id="tray-deadlock" class="tray-led" title="Estado del interbloqueo">⚠</div>
+        <div id="tray-starve" class="tray-led" title="Inanición detectada">⭐</div>
+        <div id="tray-kernel" title="Carga de CPU y ticks del núcleo">⏸ Pausado</div>
+        <button id="play-btn" title="Pausar / Reanudar núcleo">▶</button>
+        <div id="clock">--:--</div>
+      </div>
+    </div>
+
+    <!-- Menú de inicio -->
+    <div id="start-menu" class="hidden">
+      <div class="sm-head">💠 SimSys OS <small>• simulador académico</small></div>
+      <div id="start-menu-list"></div>
+      <div class="sm-foot">
+        <button id="sm-shutdown">⏻ Apagar</button>
+      </div>
+    </div>
+
+    <!-- menú contextual del escritorio -->
+    <div id="ctx-menu" class="hidden"></div>
+
+    <!-- capa de diálogos modales -->
+    <div id="modal-layer" class="hidden"></div>
+
+    <!-- toast -->
+    <div id="toast-stack"></div>
+  </div>
+
+  <script src="../kernel.js"></script>
+  <script src="charts.js"></script>
+  <script src="apps.js"></script>
+  <script src="webview.js"></script>
+  <script src="webAppManager.js"></script>
+  <script src="desktop.js"></script>
+</body>
+</html>
